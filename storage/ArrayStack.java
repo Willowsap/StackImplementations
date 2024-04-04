@@ -61,7 +61,7 @@ public class ArrayStack<T> implements Cloneable
         {
             throw new EmptyStackException();
         }
-        return (T) data[manyItems];
+        return (T) data[manyItems - 1];
     }
 
     /**
@@ -154,6 +154,8 @@ public class ArrayStack<T> implements Cloneable
 
     /**
      * Getter for the capacity of the data array.
+     * This method should not be necessary, but users could
+     * hypothetically use it to save memory.
      * 
      * @return data.length
      */
@@ -165,6 +167,9 @@ public class ArrayStack<T> implements Cloneable
     /**
      * Compare the capacity of data to the provided capacity.
      * If the capacity provided is greater, data is expanded to that size.
+     * 
+     * It would make more sense to make this method private, since users
+     * shouldn't need to call it.
      * 
      * @param capacity the size desired for the data array.
      */
@@ -183,6 +188,8 @@ public class ArrayStack<T> implements Cloneable
 
     /**
      * Reduces the size of the data array to manyItems.
+     * Should not really be necessary, but users could use it
+     * to save memory.
      */
     public void trimToSize()
     {
